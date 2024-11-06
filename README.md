@@ -16,7 +16,10 @@ See [Vite Configuration Reference](https://vite.dev/config/).
 npm install
 ```
 
-### make a copy of .env.example > .env then put the base url of the backend api as value of VITE_TODO_APP_API_URL=[backend api url]
+## make a copy of .env.example > .env then put the base url of the backend api as value of VITE_TODO_APP_API_URL=[backend api url]
+
+## as default, I put to .env.example the test api url that can access online: https://todo-app-api.devkintech.com
+
 ```sh
 cp .env.example .env
 ```
