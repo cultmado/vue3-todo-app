@@ -23,8 +23,8 @@
             </div>
                 <div class="w-full overflow-x-auto overflow-hidden">
                     <div class="relative shadow-md ">
-                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <table class="w-full text-sm text-left text-gray-500 text-gray-400">
+                            <thead class="text-xs uppercase bg-gray-700 text-gray-100">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">Id</th>
                                     <th scope="col" class="px-6 py-3">Title</th>
@@ -37,10 +37,10 @@
                             </thead>
                             <tbody>
                                 <template v-if="todoStore.getTodoItems.length > 0">
-                                    <tr v-for="task in todoStore.getTodoItems" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                        <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <tr v-for="task in todoStore.getTodoItems" class="border-b bg-gray-800 border-gray-700 hover:bg-gray-50 hover:bg-gray-600 text-gray-200">
+                                        <td class="px-6 py-4 font-medium whitespace-nowrap">
                                             {{task.id}}
-                                        </th>
+                                        </td>
                                         <td class="px-6 py-4">
                                             {{task.title}}
                                         </td>
@@ -59,15 +59,15 @@
                                             {{task.updated_at}}
                                         </td>
                                         <td class="px-6 py-4 text-right flex justify-center gap-2">
-                                            <a @click="todoStore.initTaskForm(task)" href="javascript:;" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                            <a @click="todoStore.initTaskForm(task)" href="javascript:;" class="font-medium text-blue-600 text-blue-500 hover:underline">Edit</a>
                                             <p>|</p>
-                                            <a @click="todoStore.deleteConfirmation(task)" href="javascript:;" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+                                            <a @click="todoStore.deleteConfirmation(task)" href="javascript:;" class="font-medium text-red-600 text-red-500 hover:underline">Delete</a>
                                         </td>
                                     </tr>
                                 </template>
                                 <template v-else>
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center" colspan="7">No Items Found</td>
+                                    <tr class="border-b bg-gray-800 border-gray-700">
+                                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-white text-center" colspan="7">No Items Found</td>
                                     </tr>
                                 </template>
                             </tbody>
@@ -78,17 +78,17 @@
                 <nav>
                     <ul class="inline-flex text-sm">
                         <li>
-                            <a @click="todoStore.onChangePage('prev')" href="javascript:;" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><</a>
+                            <a @click="todoStore.onChangePage('prev')" href="javascript:;" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 bg-gray-800 border-gray-700 text-gray-400 hover:bg-gray-700 hover:text-white"><</a>
                         </li>
 
                         <template v-for="(link, idx) in todoStore.data.links">
                             <li v-if="idx != 0 && idx != todoStore.data.links.length - 1">
-                                <a @click="todoStore.onChangePage(parseInt(link.label))" href="javascript:;" :class="{'dark:bg-gray-600': link.active}" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">{{link.label}}</a>
+                                <a @click="todoStore.onChangePage(parseInt(link.label))" href="javascript:;" :class="{'bg-gray-600': link.active}" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 bg-gray-800 border-gray-700 text-gray-400 hover:bg-gray-700 hover:text-white">{{link.label}}</a>
                             </li>
                         </template>
 
                         <li>
-                            <a @click="todoStore.onChangePage('next')" href="javascript:;" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">></a>
+                            <a @click="todoStore.onChangePage('next')" href="javascript:;" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 bg-gray-800 border-gray-700 text-gray-400 hover:bg-gray-700 hover:text-white">></a>
                         </li>
                     </ul>
                 </nav>
